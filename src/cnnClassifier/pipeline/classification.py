@@ -9,7 +9,7 @@ class ClassificationPipeline:
         self.video_path = video_path
 
     def classifier(self, boxes_dict):
-        print("i start classification")
+       
         print(self.video_path)
         # Charger le modèle de classification
         classification_model = load_model('model/model.h5')
@@ -43,7 +43,7 @@ class ClassificationPipeline:
             frame_boxes = boxes_dict.get(frame_idx, [])
             print(frame_boxes)
             for (x1, y1, x2, y2, score) in frame_boxes:
-                print("fadwa")
+                
                 if x2 >= 1500 and x2 < 1900:
                     # Extraire la région d'intérêt (ROI) pour la banane détectée
                     banana_roi = frame[y1:y2, x1:x2]
@@ -80,4 +80,4 @@ class ClassificationPipeline:
         # Libérer les ressources
         cap.release()
         out.release()
-        print("i finished my programme")
+        
